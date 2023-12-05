@@ -1,10 +1,11 @@
 import pathlib
 
 root = pathlib.Path(__file__).parent.parent.parent
-input_file = root / 'input' / 'day1.txt'
+input_file = root / "input" / "day1.txt"
 
 
 digits = ["one", "two", "three", "four", "five", "six", "seven", "eight", "nine"]
+
 
 def extract_digits(line: str) -> int:
     values = []
@@ -25,4 +26,3 @@ with input_file.open("r") as file:
     lines = file.readlines()
     result = sum((extract_digits(line) for line in lines))
     print(result)
-

@@ -3,7 +3,7 @@ import pathlib
 from dataclasses import dataclass
 
 root = pathlib.Path(__file__).parent.parent.parent
-input_file = root / 'input' / 'day3.txt'
+input_file = root / "input" / "day3.txt"
 
 input1 = """\
 467..114..
@@ -113,7 +113,10 @@ class Schematic:
             prev_parts = self.get_by_id(line_id - 1, lambda x: x.parts())
             cur_line = self.lines[line_id]
             next_parts = self.get_by_id(line_id + 1, lambda x: x.parts())
-            parts = sorted(prev_parts + cur_line.parts() + next_parts, key=lambda x: (x.start, x.end))
+            parts = sorted(
+                prev_parts + cur_line.parts() + next_parts,
+                key=lambda x: (x.start, x.end),
+            )
 
             for star in cur_line.stars():
                 if adjacents := star.adjacent_by(parts):
@@ -158,5 +161,3 @@ with open(input_file, "r") as file:
     lines = file.readlines()
     print("Part 1:", parse(lines).sum_part_numbers())
     print("Part 2:", parse(lines).get_gear_ratio())
-
-

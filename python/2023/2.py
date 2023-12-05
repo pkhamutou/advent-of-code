@@ -2,7 +2,7 @@ import pathlib
 from dataclasses import dataclass
 
 root = pathlib.Path(__file__).parent.parent.parent
-input_file = root / 'input' / 'day2.txt'
+input_file = root / "input" / "day2.txt"
 
 
 @dataclass
@@ -33,12 +33,12 @@ OFFSET = len("Game ")
 def parse(line: str) -> Game:
     colon_index = line.index(":", 0)
     game_id = int(line[OFFSET:colon_index])
-    sets = line[colon_index+2:].split("; ")
+    sets = line[colon_index + 2 :].split("; ")
     psets = []
     for s in sets:
         cubes = SetOfCubes(0, 0, 0)
         for c in s.split(", "):
-            val =  int(c[0:c.index(" ")])
+            val = int(c[0 : c.index(" ")])
             if RED in c:
                 cubes.red = val
             elif GREEN in c:

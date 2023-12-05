@@ -4,7 +4,7 @@ import functools
 from dataclasses import dataclass
 
 root = pathlib.Path(__file__).parent.parent.parent
-input_file = root / 'input' / 'day4.txt'
+input_file = root / "input" / "day4.txt"
 
 input1 = """\
 Card 1: 41 48 83 86 17 | 83 86  6 31 17  9 48 53
@@ -49,6 +49,7 @@ def total_points(nums: tuple[list[str], set[str]]) -> int:
 def get_total_points(lines: list[str]):
     total_sum = sum(total_points(parse_line(line.strip())) for line in lines)
     return total_sum
+
 
 print(get_total_points(input1.splitlines()), "expected: 13")
 
